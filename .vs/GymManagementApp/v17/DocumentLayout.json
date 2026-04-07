@@ -1,0 +1,185 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|c:\\users\\sotoesquiveld001\\onedrive - missouri southern state university\\gymmanagementapp\\managemembers.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|solutionrelative:managemembers.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|c:\\users\\sotoesquiveld001\\onedrive - missouri southern state university\\gymmanagementapp\\managemembers.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|solutionrelative:managemembers.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|c:\\users\\sotoesquiveld001\\onedrive - missouri southern state university\\gymmanagementapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|c:\\users\\sotoesquiveld001\\onedrive - missouri southern state university\\gymmanagementapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|c:\\users\\sotoesquiveld001\\onedrive - missouri southern state university\\gymmanagementapp\\viewmembers.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|solutionrelative:viewmembers.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|c:\\users\\sotoesquiveld001\\onedrive - missouri southern state university\\gymmanagementapp\\viewmembers.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|solutionrelative:viewmembers.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|c:\\users\\sotoesquiveld001\\onedrive - missouri southern state university\\gymmanagementapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\obj\\Debug\\net8.0-windows\\GymManagementApp\\Application.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:obj\\Debug\\net8.0-windows\\GymManagementApp\\Application.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|c:\\users\\sotoesquiveld001\\onedrive - missouri southern state university\\gymmanagementapp\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B4F357A-64DE-4D56-95AE-865D69F0EDB9}|GymManagementApp.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 288,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAAGQTAAAAAAAAAAArwBEVAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-02-19T23:11:33.502Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ManageMembers.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\ManageMembers.xaml.cs",
+              "RelativeDocumentMoniker": "ManageMembers.xaml.cs",
+              "ToolTip": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\ManageMembers.xaml.cs",
+              "RelativeToolTip": "ManageMembers.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T20:36:24.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ManageMembers.xaml",
+              "DocumentMoniker": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\ManageMembers.xaml",
+              "RelativeDocumentMoniker": "ManageMembers.xaml",
+              "ToolTip": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\ManageMembers.xaml",
+              "RelativeToolTip": "ManageMembers.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-17T20:34:39.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ViewMembers.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\ViewMembers.xaml.cs",
+              "RelativeDocumentMoniker": "ViewMembers.xaml.cs",
+              "ToolTip": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\ViewMembers.xaml.cs",
+              "RelativeToolTip": "ViewMembers.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T20:30:00.817Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ViewMembers.xaml",
+              "DocumentMoniker": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\ViewMembers.xaml",
+              "RelativeDocumentMoniker": "ViewMembers.xaml",
+              "ToolTip": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\ViewMembers.xaml",
+              "RelativeToolTip": "ViewMembers.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-17T20:29:40.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T20:00:58.943Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-17T20:00:36.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Application.g.i.cs",
+              "DocumentMoniker": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\obj\\Debug\\net8.0-windows\\GymManagementApp\\Application.g.i.cs",
+              "RelativeDocumentMoniker": "obj\\Debug\\net8.0-windows\\GymManagementApp\\Application.g.i.cs",
+              "ToolTip": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\obj\\Debug\\net8.0-windows\\GymManagementApp\\Application.g.i.cs",
+              "RelativeToolTip": "obj\\Debug\\net8.0-windows\\GymManagementApp\\Application.g.i.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-10T23:00:53.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-10T22:49:25.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\SotoEsquivelD001\\OneDrive - Missouri Southern State University\\GymManagementApp\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-10T22:49:24.77Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
