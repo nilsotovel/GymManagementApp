@@ -11,20 +11,20 @@ USE GymDB;
 -- ------------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS MembershipPlans (
-    PlanID        INT           AUTO_INCREMENT PRIMARY KEY,
-    PlanName      VARCHAR(50)   NOT NULL,
-    DurationMonths INT          NOT NULL,
-    Price         DECIMAL(10,2) NOT NULL
+    PlanID         INT           AUTO_INCREMENT PRIMARY KEY,
+    PlanName       VARCHAR(50)   NOT NULL,
+    DurationMonths INT           NOT NULL,
+    Price          DECIMAL(10,2) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Members (
-    MemberID    INT          AUTO_INCREMENT PRIMARY KEY,
-    FirstName   VARCHAR(50)  NOT NULL,
-    LastName    VARCHAR(50)  NOT NULL,
-    Phone       VARCHAR(15),
-    MemberType  ENUM('Monthly','Annual') NOT NULL,
-    JoinDate    DATE         NOT NULL DEFAULT (CURRENT_DATE),
-    ExpiryDate  DATE         NOT NULL
+    MemberID   INT          AUTO_INCREMENT PRIMARY KEY,
+    FirstName  VARCHAR(50)  NOT NULL,
+    LastName   VARCHAR(50)  NOT NULL,
+    Phone      VARCHAR(15),
+    MemberType ENUM('Monthly','Annual') NOT NULL,
+    JoinDate   DATE         NOT NULL DEFAULT (CURRENT_DATE),
+    ExpiryDate DATE         NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Payments (
@@ -80,22 +80,62 @@ INSERT INTO Payments (MemberID, PlanID, Amount, PaymentDate) VALUES
 -- 3. REQUIRED QUERIES FOR SCHOOL PROJECT
 -- ------------------------------------------------------------
 
--- ── A. Simple SELECT with WHERE ──────────────────────────────
--- Retrieve all members
+-- ============================================================
+-- A. SELECT and WHERE
+-- ============================================================
+
+-- Question:        How do you retrieve every record stored in a table?
+-- Learning Outcome: Demonstrates the basic SELECT * syntax, which returns
+--                  all columns and all rows from a table with no filtering.
 SELECT * FROM Members;
 
--- Retrieve all Annual members
-SELECT MemberID, FirstName, LastName, Phone, MemberType, JoinDate, ExpiryDate
-FROM Members
-WHERE MemberType = 'Annual';
 
--- Search by partial name (used by the app's Search feature)
+-- Question:        How do you filter rows so that only records matching a
+--                  specific condition are returned?
+-- Learning Outcome: Demonstrates the WHERE clause with an equality operator
+--                  (=) to restrict results to Annual members only.
 SELECT MemberID, FirstName, LastName, Phone, MemberType, JoinDate, ExpiryDate
-FROM Members
-WHERE FirstName LIKE '%Priya%'
-   OR LastName  LIKE '%Reyes%';
+FROM   Members
+WHERE  MemberType = 'Annual';
 
--- ── B. JOIN – Members with their payment plan details ────────
+
+-- Question:        How do you search for records where a text column
+--                  partially matches a value, across more than one column?
+-- Learning Outcome: Demonstrates the LIKE operator with wildcard characters
+--                  (%) for partial-text matching, combined with OR to search
+--                  across multiple columns — the pattern used by the app's
+--                  Search feature.
+SELECT MemberID, FirstName, LastName, Phone, MemberType, JoinDate, ExpiryDate
+FROM   Members
+WHERE  FirstName LIKE '%Priya%'
+   OR  LastName  LIKE '%Reyes%';
+
+
+-- ============================================================
+-- B. ORDER BY
+-- ============================================================
+
+-- Question:        How do you sort query results so they are presented in
+--                  a meaningful order?
+-- Learning Outcome: Demonstrates ORDER BY with ASC (ascending, default) and
+--                  DESC (descending). Sorting is independent of filtering —
+--                  it only controls the presentation of results.
+SELECT MemberID, FirstName, LastName, MemberType, JoinDate
+FROM   Members
+ORDER BY LastName ASC, JoinDate DESC;
+
+
+-- ============================================================
+-- C. INNER JOIN
+-- ============================================================
+
+-- Question:        How do you combine data from multiple related tables
+--                  into a single result set?
+-- Learning Outcome: Demonstrates INNER JOIN across three tables (Members,
+--                  Payments, MembershipPlans) using foreign-key relationships.
+--                  Only rows that have a matching record in ALL joined tables
+--                  are included. Also shows table aliases (m, p, mp) and
+--                  CONCAT to build a computed column.
 SELECT
     m.MemberID,
     CONCAT(m.FirstName, ' ', m.LastName) AS FullName,
@@ -103,22 +143,42 @@ SELECT
     p.PaymentDate,
     mp.PlanName,
     p.Amount
-FROM Members m
-JOIN Payments        p  ON m.MemberID = p.MemberID
-JOIN MembershipPlans mp ON p.PlanID   = mp.PlanID
+FROM   Members          m
+JOIN   Payments         p  ON m.MemberID = p.MemberID
+JOIN   MembershipPlans  mp ON p.PlanID   = mp.PlanID
 ORDER BY m.MemberID, p.PaymentDate;
 
--- LEFT JOIN – All members, including those with no payments
+
+-- ============================================================
+-- D. LEFT JOIN
+-- ============================================================
+
+-- Question:        How do you include rows from the left table even when
+--                  there is no matching row in the right table?
+-- Learning Outcome: Demonstrates LEFT JOIN, which keeps every row from
+--                  Members regardless of whether a matching Payments row
+--                  exists. COALESCE replaces NULL (no payment found) with 0,
+--                  showing how to handle missing data gracefully.
 SELECT
     m.MemberID,
     CONCAT(m.FirstName, ' ', m.LastName) AS FullName,
     m.MemberType,
     COALESCE(p.Amount, 0) AS AmountPaid
-FROM Members m
+FROM   Members  m
 LEFT JOIN Payments p ON m.MemberID = p.MemberID;
 
--- ── C. GROUP BY with Aggregate Functions ─────────────────────
--- Total revenue collected per membership type
+
+-- ============================================================
+-- E. Aggregate Functions: COUNT, SUM, AVG, MIN, MAX
+-- ============================================================
+
+-- Question:        How do you calculate summary statistics across groups
+--                  of rows rather than for individual records?
+-- Learning Outcome: Demonstrates all five core aggregate functions in a
+--                  single query grouped by MemberType.
+--                  COUNT(DISTINCT ...) counts unique members per type.
+--                  SUM totals revenue, AVG finds the mean payment,
+--                  MIN/MAX identify the cheapest and most expensive payments.
 SELECT
     m.MemberType,
     COUNT(DISTINCT m.MemberID) AS TotalMembers,
@@ -126,63 +186,127 @@ SELECT
     AVG(p.Amount)              AS AvgPayment,
     MIN(p.Amount)              AS MinPayment,
     MAX(p.Amount)              AS MaxPayment
-FROM Members m
-JOIN Payments p ON m.MemberID = p.MemberID
+FROM   Members  m
+JOIN   Payments p ON m.MemberID = p.MemberID
 GROUP BY m.MemberType;
 
--- Number of payments and total paid per member
+
+-- ============================================================
+-- F. GROUP BY with ORDER BY
+-- ============================================================
+
+-- Question:        How do you count and total values per entity, then rank
+--                  those entities from highest to lowest?
+-- Learning Outcome: Demonstrates GROUP BY to aggregate payment data per
+--                  member, combined with ORDER BY on an aggregate result
+--                  (TotalPaid DESC) to rank members by spending.
 SELECT
     m.MemberID,
     CONCAT(m.FirstName, ' ', m.LastName) AS FullName,
     COUNT(p.PaymentID) AS PaymentCount,
     SUM(p.Amount)      AS TotalPaid
-FROM Members m
-JOIN Payments p ON m.MemberID = p.MemberID
+FROM   Members  m
+JOIN   Payments p ON m.MemberID = p.MemberID
 GROUP BY m.MemberID, m.FirstName, m.LastName
 ORDER BY TotalPaid DESC;
 
--- Revenue per plan, only plans that earned more than $100
+
+-- ============================================================
+-- G. HAVING
+-- ============================================================
+
+-- Question:        How do you filter groups produced by GROUP BY, the same
+--                  way WHERE filters individual rows?
+-- Learning Outcome: Demonstrates HAVING, which applies a condition to
+--                  aggregate values after grouping. WHERE cannot be used
+--                  with aggregate functions — HAVING is the correct clause
+--                  for that. Here it keeps only plans that generated more
+--                  than $100 in total revenue.
 SELECT
     mp.PlanName,
     SUM(p.Amount) AS TotalRevenue
-FROM MembershipPlans mp
-JOIN Payments p ON mp.PlanID = p.PlanID
+FROM   MembershipPlans  mp
+JOIN   Payments         p  ON mp.PlanID = p.PlanID
 GROUP BY mp.PlanName
 HAVING SUM(p.Amount) > 100
 ORDER BY TotalRevenue DESC;
 
--- ── D. Subqueries ─────────────────────────────────────────────
--- Members who have paid more than the average payment amount
+
+-- ============================================================
+-- H. Subquery with IN
+-- ============================================================
+
+-- Question:        How do you use the result of one query as the filter
+--                  condition for an outer query?
+-- Learning Outcome: Demonstrates a subquery inside WHERE ... IN (...).
+--                  The inner query groups payments per member and uses
+--                  HAVING to find members whose total spending exceeds the
+--                  overall average (a scalar subquery). The outer query
+--                  then retrieves the full member details for those IDs.
 SELECT
     CONCAT(m.FirstName, ' ', m.LastName) AS FullName,
     m.MemberType
-FROM Members m
-WHERE m.MemberID IN (
-    SELECT p.MemberID
-    FROM   Payments p
+FROM   Members m
+WHERE  m.MemberID IN (
+    SELECT  p.MemberID
+    FROM    Payments p
     GROUP BY p.MemberID
-    HAVING SUM(p.Amount) > (SELECT AVG(Amount) FROM Payments)
+    HAVING  SUM(p.Amount) > (SELECT AVG(Amount) FROM Payments)
 );
 
--- Members who have never made a payment (correlated subquery)
+
+-- ============================================================
+-- I. Correlated Subquery with EXISTS
+-- ============================================================
+
+-- Question:        How do you check for the absence of a related record
+--                  in another table, evaluated row by row?
+-- Learning Outcome: Demonstrates a correlated subquery with NOT EXISTS.
+--                  Unlike IN, a correlated subquery references columns from
+--                  the outer query (m.MemberID), so it is re-evaluated for
+--                  every row in Members. This finds members who have made
+--                  zero payments — something difficult to express with a
+--                  simple JOIN.
 SELECT MemberID, FirstName, LastName
 FROM   Members m
 WHERE  NOT EXISTS (
-    SELECT 1 FROM Payments p WHERE p.MemberID = m.MemberID
+    SELECT 1
+    FROM   Payments p
+    WHERE  p.MemberID = m.MemberID
 );
 
--- Members whose membership expires within the next 30 days
+
+-- ============================================================
+-- J. Date Functions with WHERE and ORDER BY
+-- ============================================================
+
+-- Question:        How do you query rows based on calculated or relative
+--                  date ranges?
+-- Learning Outcome: Demonstrates BETWEEN with CURRENT_DATE and
+--                  DATE_ADD to build a dynamic date-range filter — no
+--                  hard-coded dates needed. ORDER BY ExpiryDate sorts the
+--                  results so the soonest-expiring memberships appear first.
 SELECT MemberID, FirstName, LastName, ExpiryDate
 FROM   Members
-WHERE  ExpiryDate BETWEEN CURRENT_DATE AND DATE_ADD(CURRENT_DATE, INTERVAL 30 DAY)
+WHERE  ExpiryDate BETWEEN CURRENT_DATE
+                      AND DATE_ADD(CURRENT_DATE, INTERVAL 30 DAY)
 ORDER BY ExpiryDate;
 
--- ── E. Additional useful operations ──────────────────────────
--- Monthly revenue trend
+
+-- ============================================================
+-- K. GROUP BY with DATE_FORMAT (Monthly Revenue Trend)
+-- ============================================================
+
+-- Question:        How do you aggregate time-series data into monthly
+--                  summaries and display the results in chronological order?
+-- Learning Outcome: Demonstrates DATE_FORMAT to truncate full dates into
+--                  year-month strings, which are then used as GROUP BY keys.
+--                  ORDER BY on the formatted string produces a correct
+--                  chronological trend of monthly revenue and payment counts.
 SELECT
     DATE_FORMAT(PaymentDate, '%Y-%m') AS Month,
     SUM(Amount)                        AS MonthlyRevenue,
     COUNT(*)                           AS PaymentCount
-FROM Payments
+FROM   Payments
 GROUP BY DATE_FORMAT(PaymentDate, '%Y-%m')
 ORDER BY Month;
