@@ -53,10 +53,10 @@
             </Border>
 
             <Border Background="#2F3542" CornerRadius="10" Padding="10">
-                <DataGrid x:Name="dgMembers" 
+                <DataGrid x:Name="dgMembers"
                           Height="300"
-                          AutoGenerateColumns="True" 
-                          IsReadOnly="True" 
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
                           Background="Transparent"
                           BorderThickness="0"
                           RowBackground="#2F3542"
@@ -77,6 +77,16 @@
                             <Setter Property="BorderBrush" Value="#34E7E4"/>
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID"          Binding="{Binding MemberID}"   Width="55"/>
+                        <DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"  Width="*"/>
+                        <DataGridTextColumn Header="Last Name"   Binding="{Binding LastName}"   Width="*"/>
+                        <DataGridTextColumn Header="Phone"       Binding="{Binding Phone}"      Width="110"/>
+                        <DataGridTextColumn Header="Type"        Binding="{Binding MemberType}" Width="80"/>
+                        <DataGridTextColumn Header="Join Date"   Binding="{Binding JoinDate,   StringFormat={}{0:yyyy-MM-dd}}" Width="100"/>
+                        <DataGridTextColumn Header="Expiry Date" Binding="{Binding ExpiryDate, StringFormat={}{0:yyyy-MM-dd}}" Width="100"/>
+                    </DataGrid.Columns>
                 </DataGrid>
             </Border>
         </StackPanel>

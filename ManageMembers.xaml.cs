@@ -1,3 +1,4 @@
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -8,20 +9,52 @@ namespace GymManagementApp
         public ManageMembers()
         {
             InitializeComponent();
+            RefreshGrid();
+        }
+
+        // ── Grid ─────────────────────────────────────────────────────
+
+        private void RefreshGrid()
+        {
+            try
+            {
+                dgManageMembers.ItemsSource = DatabaseHelper.GetAllMembers().DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Could not load members:\n{ex.Message}",
+                                "Database Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void DgManageMembers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgManageMembers.SelectedItem is not DataRowView row)
+                return;
+
+            txtMemberID.Text   = row["MemberID"].ToString();
+            txtMemberName.Text = $"{row["FirstName"]} {row["LastName"]}".Trim();
+            txtPhone.Text      = row["Phone"].ToString();
+
+            string memberType = row["MemberType"].ToString()!;
+            foreach (ComboBoxItem item in cbMemberType.Items)
+            {
+                if (item.Content.ToString() == memberType)
+                {
+                    cbMemberType.SelectedItem = item;
+                    break;
+                }
+            }
         }
 
         // ── Helpers ───────────────────────────────────────────────────
 
-        /// <summary>
-        /// Splits "FirstName LastName" entered in txtMemberName.
-        /// Everything up to the first space = FirstName; the rest = LastName.
-        /// </summary>
         private (string First, string Last) SplitName(string fullName)
         {
             fullName = fullName.Trim();
             int space = fullName.IndexOf(' ');
             if (space < 0)
-                return (fullName, string.Empty);   // only one word supplied
+                return (fullName, string.Empty);
             return (fullName[..space], fullName[(space + 1)..]);
         }
 
@@ -49,6 +82,7 @@ namespace GymManagementApp
                 MessageBox.Show($"{first} {last} has been added successfully.",
                                 "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 BtnReset_Click(sender, e);
+                RefreshGrid();
             }
             else
             {
@@ -83,6 +117,7 @@ namespace GymManagementApp
                 MessageBox.Show($"Member ID {id} updated successfully.",
                                 "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 BtnReset_Click(sender, e);
+                RefreshGrid();
             }
             else
             {
@@ -113,6 +148,7 @@ namespace GymManagementApp
                     MessageBox.Show($"Member ID {id} has been deleted.",
                                    "Deleted", MessageBoxButton.OK, MessageBoxImage.Information);
                     BtnReset_Click(sender, e);
+                    RefreshGrid();
                 }
                 else
                 {
@@ -128,6 +164,7 @@ namespace GymManagementApp
             txtMemberName.Clear();
             txtPhone.Clear();
             cbMemberType.SelectedIndex = -1;
+            dgManageMembers.SelectedItem = null;
         }
     }
 }

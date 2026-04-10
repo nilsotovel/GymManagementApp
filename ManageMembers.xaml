@@ -46,6 +46,53 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
+
+                <TextBlock Text="CLICK A ROW TO FILL THE FORM"
+                           Foreground="#7F8C8D"
+                           FontSize="11"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           Margin="0,20,0,8"/>
+
+                <Border Background="#2F3542" CornerRadius="10" Padding="10">
+                    <DataGrid x:Name="dgManageMembers"
+                              Height="250"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              SelectionMode="Single"
+                              SelectionChanged="DgManageMembers_SelectionChanged"
+                              Background="Transparent"
+                              BorderThickness="0"
+                              RowBackground="#2F3542"
+                              AlternatingRowBackground="#34495E"
+                              Foreground="White"
+                              GridLinesVisibility="Horizontal"
+                              HorizontalGridLinesBrush="#34E7E4"
+                              HeadersVisibility="Column"
+                              ColumnHeaderHeight="40">
+
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#2C3E50"/>
+                                <Setter Property="Foreground" Value="#34E7E4"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Padding" Value="10,0"/>
+                                <Setter Property="BorderThickness" Value="0,0,0,2"/>
+                                <Setter Property="BorderBrush" Value="#34E7E4"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID"          Binding="{Binding MemberID}"   Width="55"/>
+                            <DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"  Width="*"/>
+                            <DataGridTextColumn Header="Last Name"   Binding="{Binding LastName}"   Width="*"/>
+                            <DataGridTextColumn Header="Phone"       Binding="{Binding Phone}"      Width="110"/>
+                            <DataGridTextColumn Header="Type"        Binding="{Binding MemberType}" Width="80"/>
+                            <DataGridTextColumn Header="Join Date"   Binding="{Binding JoinDate,   StringFormat={}{0:yyyy-MM-dd}}" Width="100"/>
+                            <DataGridTextColumn Header="Expiry Date" Binding="{Binding ExpiryDate, StringFormat={}{0:yyyy-MM-dd}}" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
             </StackPanel>
         </ScrollViewer>
     </Grid>
